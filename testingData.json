@@ -1,0 +1,62 @@
+[
+    {
+        "timestamp": 1539946685288,
+        "HardwareId": "_sc26xmylgk",
+        "energyConsumed": 3269,
+        "energyProduced": 2713
+    },
+    {
+        "timestamp": 1539946685244,
+        "HardwareId": "_e7bv9pm5byo",
+        "energyConsumed": 643,
+        "energyProduced": 86
+    },
+    {
+        "timestamp": 1539946685185,
+        "HardwareId": "_e7bv9pm5byo",
+        "energyConsumed": 4001,
+        "energyProduced": 207
+    },
+    {
+        "timestamp": 1539946685300,
+        "HardwareId": "_sc26xmylgk",
+        "energyConsumed": 2683,
+        "energyProduced": 674
+    },
+    {
+        "timestamp": 1539946685256,
+        "HardwareId": "_e7bv9pm5byo",
+        "energyConsumed": 119,
+        "energyProduced": 1509
+    },
+    {
+        "timestamp": 1539946685351,
+        "HardwareId": "_6thdtfvbd89",
+        "energyConsumed": 2796,
+        "energyProduced": 65
+    },
+    {
+        "timestamp": 1539946685189,
+        "HardwareId": "_e7bv9pm5byo",
+        "energyConsumed": 2492,
+        "energyProduced": 1812
+    },
+    {
+        "timestamp": 1539946685299,
+        "HardwareId": "_6thdtfvbd89",
+        "energyConsumed": 1314,
+        "energyProduced": 2293
+    },
+    {
+        "timestamp": 1539946685371,
+        "HardwareId": "_e7bv9pm5byo",
+        "energyConsumed": 42,
+        "energyProduced": 912
+    },
+    {
+        "timestamp": 1539946685276,
+        "HardwareId": "_sc26xmylgk",
+        "energyConsumed": 1248,
+        "energyProduced": 1767
+    }
+]

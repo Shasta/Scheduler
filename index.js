@@ -1,5 +1,7 @@
 const mongoose = require('mongoose');
 const util = require('util');
+var CronJob = require('cron').CronJob;
+var controller = require('./service/controller')
 
 // config should be imported before importing any other file
 const config = require('./config/config');
@@ -35,5 +37,11 @@ if (!module.parent) {
     console.info(`server started on port ${config.port} (${config.env})`); // eslint-disable-line no-console
   });
 }
+
+//Start scheduler
+console.log("Starting scheduler")
+new CronJob('* * * * * *', function() {
+  controller.startSchedule();
+}, null, true, 'America/Los_Angeles');
 
 module.exports = app;

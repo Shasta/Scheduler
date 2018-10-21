@@ -1,62 +1,62 @@
 [
     {
-        "timestamp": 1539946685288,
-        "HardwareId": "_sc26xmylgk",
-        "energyConsumed": 3269,
-        "energyProduced": 2713
+        "timestamp": 1540139357518,
+        "hardwareId": "_e7bv9pm5byo",
+        "energyConsumed": 264,
+        "energyProduced": 1805
     },
     {
-        "timestamp": 1539946685244,
-        "HardwareId": "_e7bv9pm5byo",
-        "energyConsumed": 643,
-        "energyProduced": 86
+        "timestamp": 1540139357400,
+        "hardwareId": "_6thdtfvbd89",
+        "energyConsumed": 1184,
+        "energyProduced": 2551
     },
     {
-        "timestamp": 1539946685185,
-        "HardwareId": "_e7bv9pm5byo",
-        "energyConsumed": 4001,
-        "energyProduced": 207
+        "timestamp": 1540139357526,
+        "hardwareId": "_f9u7spdjcpt",
+        "energyConsumed": 501,
+        "energyProduced": 768
     },
     {
-        "timestamp": 1539946685300,
-        "HardwareId": "_sc26xmylgk",
-        "energyConsumed": 2683,
-        "energyProduced": 674
+        "timestamp": 1540139357468,
+        "hardwareId": "_6thdtfvbd89",
+        "energyConsumed": 293,
+        "energyProduced": 2227
     },
     {
-        "timestamp": 1539946685256,
-        "HardwareId": "_e7bv9pm5byo",
-        "energyConsumed": 119,
-        "energyProduced": 1509
+        "timestamp": 1540139357463,
+        "hardwareId": "_f9u7spdjcpt",
+        "energyConsumed": 2946,
+        "energyProduced": 2301
     },
     {
-        "timestamp": 1539946685351,
-        "HardwareId": "_6thdtfvbd89",
-        "energyConsumed": 2796,
-        "energyProduced": 65
+        "timestamp": 1540139357533,
+        "hardwareId": "_sc26xmylgk",
+        "energyConsumed": 3634,
+        "energyProduced": 1841
     },
     {
-        "timestamp": 1539946685189,
-        "HardwareId": "_e7bv9pm5byo",
-        "energyConsumed": 2492,
-        "energyProduced": 1812
+        "timestamp": 1540139357459,
+        "hardwareId": "_e7bv9pm5byo",
+        "energyConsumed": 3322,
+        "energyProduced": 747
     },
     {
-        "timestamp": 1539946685299,
-        "HardwareId": "_6thdtfvbd89",
-        "energyConsumed": 1314,
-        "energyProduced": 2293
+        "timestamp": 1540139357426,
+        "hardwareId": "_f9u7spdjcpt",
+        "energyConsumed": 3027,
+        "energyProduced": 2221
     },
     {
-        "timestamp": 1539946685371,
-        "HardwareId": "_e7bv9pm5byo",
-        "energyConsumed": 42,
-        "energyProduced": 912
+        "timestamp": 1540139357530,
+        "hardwareId": "_e7bv9pm5byo",
+        "energyConsumed": 3970,
+        "energyProduced": 1383
     },
     {
-        "timestamp": 1539946685276,
-        "HardwareId": "_sc26xmylgk",
-        "energyConsumed": 1248,
-        "energyProduced": 1767
+        "timestamp": 1540139357405,
+        "hardwareId": "_6thdtfvbd89",
+        "energyConsumed": 466,
+        "energyProduced": 2915
     }
 ]

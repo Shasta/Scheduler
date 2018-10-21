@@ -40,7 +40,7 @@ if (!module.parent) {
 
 //Start scheduler
 console.log("Starting scheduler")
-new CronJob('* * * * * *', function() {
+new CronJob('*/10 * * * * *', function() {
   controller.startSchedule();
 }, null, true, 'America/Los_Angeles');
 

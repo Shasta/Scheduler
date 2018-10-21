@@ -9,11 +9,10 @@ exports.startSchedule = function() {
 
     console.log("hola");
     //Order data by hardware id
-
+    orderByHardwareId();
 }
 
 function orderByHardwareId() {
-
     let hardwareMap = new Map();
 
     let batchesByHardware = [];
@@ -21,17 +20,15 @@ function orderByHardwareId() {
 
     for( var key in jsonTest) {
 
-        if (hardwareMap.has(jsonTest[key])) {
-            hardwareMap.get(jsonTest[key].hardwareId)
+        let entry = jsonTest[key];
+        delete entry.hardwareIdM;
+        if (hardwareMap.has(jsonTest[key].hardwareId)) {
+            hardwareMap.get(jsonTest[key].hardwareId).push(entry);
         } else {
             hardwareMap.set(jsonTest[key].hardwareId, [])
-            let entry = jsonTest[key];
-            delete entry.hardwareIdM
             hardwareMap.get(jsonTest[key].hardwareId).push(entry)
-
         }
-
     }
-
+    
 }
 

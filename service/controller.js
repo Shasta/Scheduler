@@ -16,7 +16,7 @@ exports.startSchedule = async function() {
 
     const accounts = await web3.eth.getAccounts();
     account = accounts[1];
-    
+
     await uploadRootToEthereum("randomHash");
 
     //Order data by hardware id
@@ -27,6 +27,12 @@ exports.startSchedule = async function() {
     console.log("Uploaded batches to ipfs, processing to manage root hash...")
     //Upload a batch with all hashes to ipfs and ethereum
     await uploadRootBatch();
+
+}
+
+function retrieveData() {
+
+    
 
 }
 

@@ -883,10 +883,10 @@
     "5777": {
       "events": {},
       "links": {},
-      "address": "0xD1BB52Da24b028f7AcAE2d519A7dFeACc5C452aB",
-      "transactionHash": "0x927327a1db293b19db8252485da729f79e48fb60a77040596de6d732a1f4ce97"
+      "address": "0xd1bb52da24b028f7acae2d519a7dfeacc5c452ab",
+      "transactionHash": "0x84f061ff69a77af18f1123f5f24599837e2a7ab88854eaa8d4cde37ca503a0a0"
     }
   },
-  "schemaVersion": "3.0.0-beta.0",
-  "updatedAt": "2018-10-22T10:27:29.559Z"
+  "schemaVersion": "2.0.1",
+  "updatedAt": "2018-10-22T15:45:26.679Z"
 }

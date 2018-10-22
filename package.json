@@ -11,6 +11,7 @@
     "yarn": ">=1.5.1"
   },
   "scripts": {
+    "dev": "truffle migrate --reset && concurrently \"npm run start\" ",
     "start": "node index.js",
     "start:debug": "cross-env DEBUG=express-mongoose-es6-rest-api:* yarn start",
     "lint": "esw *.js server config --color",
@@ -60,6 +61,7 @@
     "method-override": "^2.3.10",
     "mongoose": "4.7.4",
     "morgan": "1.9.0",
+    "shasta-os": "git+ssh://git@github.com/Shasta/ShastaOS.git#b40e5f9c43761cf684197dd6b9f94a0432e3b8eb",
     "winston": "2.4.1"
   },
   "devDependencies": {

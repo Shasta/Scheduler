@@ -1,6 +1,7 @@
 var fs = require('fs');
 const ipfs = require("./ipfs");
 const jsonTest = JSON.parse(fs.readFileSync("./testingData.json", "utf8"));
+const HardwareContract = require('shasta-os/build/contracts/HardwareData.json');
 
 var exports = module.exports = {};
 let hardwareMap = new Map();

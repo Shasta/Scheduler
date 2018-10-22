@@ -1,21 +1,30 @@
+const config = require('../config/config');
 var fs = require('fs');
 const ipfs = require("./ipfs");
 const jsonTest = JSON.parse(fs.readFileSync("./testingData.json", "utf8"));
-const HardwareContract = require('shasta-os/build/contracts/HardwareData.json');
 
+const HardwareContract = require('../build/contracts/HardwareData.json');
+
+var Web3 = require('web3');
+var web3 = new Web3(config.web3Provider);
 var exports = module.exports = {};
 let hardwareMap = new Map();
 let jsonHashes = [];
-
+let account;
 //Manages all the scheduled process
 exports.startSchedule = async function() {
+
+    const accounts = await web3.eth.getAccounts();
+    account = accounts[1];
+    
+    await uploadRootToEthereum("randomHash");
 
     //Order data by hardware id
     orderByHardwareId();
 
     //Make hash of each batch and upload to ipfs
     await uploadBatchToIpfs();
-
+    console.log("Uploaded batches to ipfs, processing to manage root hash...")
     //Upload a batch with all hashes to ipfs and ethereum
     await uploadRootBatch();
 
@@ -29,6 +38,25 @@ async function uploadRootBatch() {
 
     //Save the root hash to ethereum network
 
+}
+
+async function uploadRootToEthereum(rootHash) {
+
+    const HardwareInstance = await new web3.eth.Contract(HardwareContract.abi, HardwareContract.networks[5777].address);
+
+    const rootHashHex = web3.utils.utf8ToHex(rootHash);
+    
+    console.log(HardwareInstance)
+    //Add new hash
+    const gas = await HardwareInstance.methods.addHash(rootHashHex).estimateGas({ from: account });
+    await HardwareInstance.methods.addHash(rootHashHex).send({ from: account, gas: gas });
+    
+    //Get number of hashes
+    const hashesCount = await HardwareInstance.methods.getHashesCount().call();
+
+    //Check the hash has been added
+    let hash = await HardwareInstance.methods.ipfsHashes(hashesCount - 1).call();
+    console.log(web3.utils.hexToUtf8(hash));
 }
 
 async function uploadBatchToIpfs() {

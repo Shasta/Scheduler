@@ -43,6 +43,6 @@ console.log("Starting scheduler")
 
 new CronJob('*/10 * * * * *', function() {
   controller.startSchedule();
-}, null, true, 'America/Los_Angeles');
+}, null, true, 'Europe/Madrid');
 
 module.exports = app;

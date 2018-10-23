@@ -1,7 +1,6 @@
 const mongoose = require('mongoose');
 const util = require('util');
-var CronJob = require('cron').CronJob;
-var controller = require('./service/controller')
+const IntervalEvent = require('./utils/interval_event.js');
 
 // config should be imported before importing any other file
 const config = require('./config/config');
@@ -40,9 +39,12 @@ if (!module.parent) {
 
 //Start scheduler
 
-new CronJob('*/50 * * * * *', function() {
-  console.log("Starting scheduler")
-  controller.startSchedule();
-}, null, true, 'Europe/Madrid');
+// new CronJob('* */10 * * * *', function() {
+//   console.log("Starting scheduler")
+//   controller.startSchedule();
+// }, null, true, 'Europe/Madrid');
+
+const intervalEvent = new IntervalEvent(50000, 2, true);
+intervalEvent.start();
 
 module.exports = app;

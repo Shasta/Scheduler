@@ -19,11 +19,11 @@ const backupMetric = async (req, res, next) => {
     res.send({ status: "ok", message: 'backup-saved' })
 }
 
-const getMetrics = async (fromDate) => {
+const getMetrics = async () => {
 
     let result = "";
     try {
-        result = await MetricProof.find();
+        result = await MetricProof.find({'consolidated': false});
     } catch (rawError) {
         console.error(rawError);
         const dbError = new APIError('Error while saving to DB.')
@@ -32,7 +32,18 @@ const getMetrics = async (fromDate) => {
     return result;
 }
 
+const updateMetricConsolidation = async (metricIds) => {
+    try {
+        await MetricProof.update({_id: {'$in': metricIds}},{"$set": {'consolidated': true}}, { 'multi': true });
+    } catch (rawError) {
+        console.error(rawError);
+        const dbError = new APIError('Error while saving to DB.')
+        return next(dbError);
+    }
+}
+
 module.exports =  {
     backupMetric,
-    getMetrics
+    getMetrics,
+    updateMetricConsolidation
 }

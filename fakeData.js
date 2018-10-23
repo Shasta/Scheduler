@@ -24,7 +24,7 @@ if (config.mongooseDebug) {
 }
 
 
-var MetricProof = require('./service/metrics-proof/metricProof.model');
+var MetricProof = require('./service/MetricProof/metricProof.model');
 var fs = require('fs');
 let data = []
 const numberOfEntries = 10;
@@ -49,7 +49,7 @@ async function startTest() {
         data.push(createFakeEntry());
 
     }
-
+    
     await fs.writeFile("./testingData.json", JSON.stringify(data));
     await insertMetricArray(data);
 }

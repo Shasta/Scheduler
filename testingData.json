@@ -1,1 +1,92 @@
-[{"hardware_id":"_e7bv9pm5byo","ipfs_hash":"pc5fc8gxrkp","metrics":{"watts_consumed":1473,"watts_produced":1785,"timestamp":1540222028107}},{"hardware_id":"_6thdtfvbd89","ipfs_hash":"fi5o9x7jus","metrics":{"watts_consumed":2259,"watts_produced":512,"timestamp":1540222028184}},{"hardware_id":"_sc26xmylgk","ipfs_hash":"9wte5cu7yth","metrics":{"watts_consumed":3120,"watts_produced":909,"timestamp":1540222028245}},{"hardware_id":"_f9u7spdjcpt","ipfs_hash":"x8nkwvuzhh","metrics":{"watts_consumed":1681,"watts_produced":2731,"timestamp":1540222028126}},{"hardware_id":"_sc26xmylgk","ipfs_hash":"10w618ev6ulb","metrics":{"watts_consumed":2392,"watts_produced":902,"timestamp":1540222028171}},{"hardware_id":"_6thdtfvbd89","ipfs_hash":"c2569hgip4o","metrics":{"watts_consumed":1218,"watts_produced":1247,"timestamp":1540222028238}},{"hardware_id":"_f9u7spdjcpt","ipfs_hash":"qfsqjr5bv3","metrics":{"watts_consumed":3097,"watts_produced":142,"timestamp":1540222028194}},{"hardware_id":"_6thdtfvbd89","ipfs_hash":"d66k3hg7hkv","metrics":{"watts_consumed":390,"watts_produced":2346,"timestamp":1540222028098}},{"hardware_id":"_f9u7spdjcpt","ipfs_hash":"1xnr1vh9kjai","metrics":{"watts_consumed":1809,"watts_produced":346,"timestamp":1540222028183}},{"hardware_id":"_f9u7spdjcpt","ipfs_hash":"v4to0yphymb","metrics":{"watts_consumed":179,"watts_produced":1755,"timestamp":1540222028242}}]
+[
+    {
+        "hardware_id": "_6thdtfvbd89",
+        "ipfs_hash": "rj7ttegcz3",
+        "metrics": {
+            "watts_consumed": 385,
+            "watts_produced": 2384,
+            "timestamp": 1540282244587
+        }
+    },
+    {
+        "hardware_id": "_e7bv9pm5byo",
+        "ipfs_hash": "qje6rq467mh",
+        "metrics": {
+            "watts_consumed": 222,
+            "watts_produced": 894,
+            "timestamp": 1540282244717
+        }
+    },
+    {
+        "hardware_id": "_e7bv9pm5byo",
+        "ipfs_hash": "a7w3uilg2i9",
+        "metrics": {
+            "watts_consumed": 1854,
+            "watts_produced": 2187,
+            "timestamp": 1540282244692
+        }
+    },
+    {
+        "hardware_id": "_f9u7spdjcpt",
+        "ipfs_hash": "hq3ok0r01ks",
+        "metrics": {
+            "watts_consumed": 510,
+            "watts_produced": 198,
+            "timestamp": 1540282244644
+        }
+    },
+    {
+        "hardware_id": "_6thdtfvbd89",
+        "ipfs_hash": "eyli41p3l48",
+        "metrics": {
+            "watts_consumed": 287,
+            "watts_produced": 531,
+            "timestamp": 1540282244624
+        }
+    },
+    {
+        "hardware_id": "_sc26xmylgk",
+        "ipfs_hash": "6t8pm6mtb1b",
+        "metrics": {
+            "watts_consumed": 1108,
+            "watts_produced": 1185,
+            "timestamp": 1540282244687
+        }
+    },
+    {
+        "hardware_id": "_6thdtfvbd89",
+        "ipfs_hash": "05m5yqyu17gy",
+        "metrics": {
+            "watts_consumed": 1385,
+            "watts_produced": 1885,
+            "timestamp": 1540282244573
+        }
+    },
+    {
+        "hardware_id": "_6thdtfvbd89",
+        "ipfs_hash": "g6i3glhkftr",
+        "metrics": {
+            "watts_consumed": 1036,
+            "watts_produced": 2983,
+            "timestamp": 1540282244536
+        }
+    },
+    {
+        "hardware_id": "_e7bv9pm5byo",
+        "ipfs_hash": "lcnyf40caw9",
+        "metrics": {
+            "watts_consumed": 1317,
+            "watts_produced": 310,
+            "timestamp": 1540282244571
+        }
+    },
+    {
+        "hardware_id": "_6thdtfvbd89",
+        "ipfs_hash": "4ggq9kufkgm",
+        "metrics": {
+            "watts_consumed": 609,
+            "watts_produced": 2317,
+            "timestamp": 1540282244535
+        }
+    }
+]

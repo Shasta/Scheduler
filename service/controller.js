@@ -27,7 +27,8 @@ exports.startSchedule = async function () {
     //Retrieve data from mongo db
     jsonData = await retrieveData();
     console.log("Obtained data from db")
-
+    console.log("Consolidating " + jsonData.length + " batches")
+    
     if (jsonData.length > 0) {
         //Order data by hardware id
         let orderedData = orderByHardwareId(jsonData);

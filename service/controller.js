@@ -2,7 +2,6 @@ const config = require('../config/config');
 var _ = require('lodash');
 var fs = require('fs');
 const ipfs = require("./ipfs");
-let jsonTest = JSON.parse(fs.readFileSync("./testingData.json", "utf8"));
 const { getMetrics, updateMetricConsolidation } = require('./MetricProof/metricProof.controller');
 const { backupHBatch } = require('./HardwareProofBatch/hardwareProofBatch.controller');
 const { backupGBatch } = require('./GlobalProofBatch/globalProofBatch.controller');
@@ -28,7 +27,7 @@ exports.startSchedule = async function () {
     jsonData = await retrieveData();
     console.log("Obtained data from db")
     console.log("Consolidating " + jsonData.length + " batches")
-    
+
     if (jsonData.length > 0) {
         //Order data by hardware id
         let orderedData = orderByHardwareId(jsonData);

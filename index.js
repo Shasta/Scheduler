@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 const util = require('util');
 const IntervalEvent = require('./utils/interval_event.js');
+const initializeStorage = require('./service/initialize_storage');
 
 // config should be imported before importing any other file
 const config = require('./config/config');
@@ -37,14 +38,13 @@ if (!module.parent) {
   });
 }
 
-//Start scheduler
+//Initialize storage
+initializeStorage().then(initialState => {
+  console.log("Last Timestamp: ", initialState.lastTimestamp)
 
-// new CronJob('* */10 * * * *', function() {
-//   console.log("Starting scheduler")
-//   controller.startSchedule();
-// }, null, true, 'Europe/Madrid');
-
-const intervalEvent = new IntervalEvent(50000, 2, true);
-intervalEvent.start();
+  //Start scheduler
+  const intervalEvent = new IntervalEvent(config.stampingTime, 2, true);
+  intervalEvent.start();
+})
 
 module.exports = app;

@@ -10,10 +10,11 @@ class IntervalEvent extends EventEmitter {
     this.interval = ms;
     this.forever = forever;
     this.handle = undefined;
+
     this.addListener('fire', this.action);
 
   }
-  
+
   start() {
     if (!this.handle) {
       this.fireEvent()
@@ -36,7 +37,7 @@ class IntervalEvent extends EventEmitter {
   fireEvent() {
     this.emit('fire');
   }
-  
+
   emitNextEvent() {
     if (this.handle) {
       clearTimeout(this.handle);

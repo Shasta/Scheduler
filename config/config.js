@@ -25,8 +25,12 @@ const envVarsSchema = Joi.object({
   WEB3_PROVIDER: Joi.string()
     .default("ws://localhost:8545"),
   ACCOUNT_PRIVATE_KEY: Joi.string().required()
-    .description("Account private key with ether funds")
-    
+    .description("Account private key with ether funds"),
+  STAMP_TIME_MS: Joi.number().required()
+    .description("The stamping time in ms"),
+  NETWORK_ID: Joi.number().required()
+    .description("The truffle configured network identifier")
+
 }).unknown()
   .required();
 
@@ -45,7 +49,9 @@ const config = {
     port: envVars.MONGO_PORT
   },
   web3Provider: envVars.WEB3_PROVIDER,
-  accountPrivateKey: envVars.ACCOUNT_PRIVATE_KEY
+  accountPrivateKey: envVars.ACCOUNT_PRIVATE_KEY,
+  stampingTime: envVars.STAMP_TIME_MS,
+  networkId: envVars.NETWORK_ID
 };
 
 module.exports = config;

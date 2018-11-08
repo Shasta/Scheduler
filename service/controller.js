@@ -6,25 +6,23 @@ let jsonTest = JSON.parse(fs.readFileSync("./testingData.json", "utf8"));
 const { getMetrics, updateMetricConsolidation } = require('./MetricProof/metricProof.controller');
 const { backupHBatch } = require('./HardwareProofBatch/hardwareProofBatch.controller');
 const { backupGBatch } = require('./GlobalProofBatch/globalProofBatch.controller');
+const storage = require('node-persist');
 
 const HardwareContract = require('../build/contracts/HardwareData.json');
-
 var Web3 = require('web3');
 var web3 = new Web3(config.web3Provider);
 var exports = module.exports = {};
 let hardwareIdsMap = new Map();
 let globalIds = [];
 let batchIds = [];
-
 let account;
 
 //Manages all the scheduled process
 exports.startSchedule = async function () {
-
+    
     let jsonData;
-    const accounts = await web3.eth.getAccounts();
-    account = accounts[1];
-    //await uploadRootToEthereum("QmbrRiQhDKuZQ7rFN5L4o9Xegq4Qxv3U3RvQRVNyohMsFk");
+    //const accounts = await web3.eth.getAccounts();
+    account = web3.eth.accounts.privateKeyToAccount(config.accountPrivateKey);
 
     //Retrieve data from mongo db
     jsonData = await retrieveData();
@@ -36,12 +34,21 @@ exports.startSchedule = async function () {
         console.log("Ordered the received data correctly");
 
         //Make hash of each batch and upload to ipfs
-        let jsonHashes = await uploadBatchToIpfs(orderedData);
+        let batches = await uploadBatchToIpfs(orderedData);
         console.log("Uploaded batches to ipfs, processing to manage root hash...")
 
+        const previous_hash = await storage.getItem('lastHash');
+        const rootJson = {
+            previous_hash,
+            batches
+        }
+
         //Upload a batch with all hashes to ipfs and ethereum
-        const hash = await uploadRootBatch(jsonHashes);
+        const hash = await uploadRootBatch(rootJson);
         console.log("Uploaded to ethereum correctly: ", hash);
+
+        //Update previous hash
+        await storage.setItem('lastHash', hash);
 
         //Update consolidated batches
         await updateMetricConsolidation(batchIds);
@@ -79,17 +86,28 @@ const uploadRootBatch = async (jsonHashes) => {
 
 const uploadRootToEthereum = async (rootHash) => {
 
-    let HardwareInstance = await new web3.eth.Contract(HardwareContract.abi, HardwareContract.networks[5777].address);
-
+    const balance = await web3.eth.getBalance(account.address);
+    let HardwareInstance = await new web3.eth.Contract(HardwareContract.abi, HardwareContract.networks[config.networkId].address);
     const rootHashHex = web3.utils.utf8ToHex(rootHash);
 
     //Add new hash
-    const gas = await HardwareInstance.methods.addHash(rootHashHex).estimateGas({ from: account });
-    await HardwareInstance.methods.addHash(rootHashHex).send({ from: account, gas: gas });
+    const gas = await HardwareInstance.methods.addHash(rootHashHex).estimateGas({ from: account.address });
+    const txData = await HardwareInstance.methods.addHash(rootHashHex).encodeABI();
 
+    const tx = {
+        from: account.address,
+        to: HardwareInstance._address,
+        gas: gas,
+        data: txData,
+        value: 0
+    }
+
+    const signedTx = await web3.eth.accounts.signTransaction(tx, config.accountPrivateKey);
+    const sentTx = await web3.eth.sendSignedTransaction(signedTx.rawTransaction);
+    
     //Get number of hashes
     const hashesCount = await HardwareInstance.methods.getHashesCount().call();
-
+    console.log("Current stored hashes: " + hashesCount)
     //Check the hash has been added
     let hash = await HardwareInstance.methods.ipfsHashes(hashesCount - 1).call();
     let utfHash = web3.utils.hexToUtf8(hash);
@@ -99,6 +117,7 @@ const uploadRootToEthereum = async (rootHash) => {
     batch.ipfs_global_batch_proof = utfHash;
     batch.hardware_batches = globalIds;
     await backupGBatch(batch)
+
     return utfHash;
 }
 
